@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .item{
+            text-align: center;
+            background-color: black;
+            width: 176px;
+            height: 230px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .i1{
+            width: 160px;
+            height: 30px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: none;
+            text-align: right;
+            font-size: 16px;
+            padding: 2px;
+        }
+        button{
+            width:38px;
+            height: 38px;
+            margin-bottom: 5px;
+            background-color: grey;
+            color:white;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: darkgrey;
+        }
+        .cal{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+   <div class="item">
+        <input id="display" class="i1" type="text" readonly>
+        <br>
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button class="cal" onclick="press('+')">+</button><br>
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button class="cal" onclick="press('-')">-</button><br>
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button class="cal" onclick="press('/')">/</button><br>
+        <button onclick="press('*')">*</button>
+        <button onclick="press('0')">0</button>
+        <button onclick="clearDisplay()">C</button>
+        <button class="cal" onclick="calculate()">=</button><br>
+   </div>
+
+   <script>
+        let display = document.getElementById("display");
+
+        function press(num) {
+            display.value += num;
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value); // evaluates expression
+            } catch {
+                display.value = "Error";
+            }
+        }
+
+        function clearDisplay() {
+            display.value = "";
+        }
+   </script>
+</body>
+</html>

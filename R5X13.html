@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        </style>
+        <title>Multi Unit Converter of weight</title>
+        <h1>Weight Converter</h1>
+        <input type="number" id="gram" placeholder="Enter Gram value">
+        <select id="unit">
+            <option value="kg">Kilogram</option>
+            <option value="pound">Pound</option>
+            <option value="mg">Milli-Gram</option>
+        </select>
+        <button onclick="gramToOtherUnitCalculator();">Calculate</button>
+        <p id="result"></p>
+
+    </head>
+    <body>
+        <script>
+            function gramToOtherUnitCalculator(){
+
+                let gram = parseFloat(document.getElementById("gram").value);
+                let unit = document.getElementById("unit").value;
+                let resultText = "";
+
+                if(isNaN(gram)){
+                    document.getElementById("result").innerText = "Please Enter a valid input!";
+                    return;
+                }
+                switch(unit){
+                    case "kg":
+                        resultText = (gram/1000).toFixed(2) + "Kg";
+                        break;
+                    case "pound":
+                        resultText = (gram/453.6).toFixed(2) + "Pound";
+                        break;
+                    case "mg":
+                        resultText = (gram*1000) + "Mg";
+                        break;
+                    default:
+                        resultText = "Invalid unit selection!";
+                }
+                document.getElementById("result").innerText = resultText;
+        }
+        </script>
+    </body>
+</html>
